@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_library_lib"
+        android:icon="@drawable/nav_clapperboard_white"
+        android:title="@string/library_str" />
+
+    <item
+        android:id="@+id/navigation_friends_lib"
+        android:icon="@drawable/nav_friends_white"
+        android:title="@string/friends_str" />
+
+    <item
+        android:id="@+id/navigation_favorites_lib"
+        android:icon="@drawable/nav_star_white"
+        android:title="@string/favorites_str" />
+
+    <item
+        android:id="@+id/navigation_account_lib"
+        android:icon="@drawable/nav_account_white"
+        android:title="@string/account_str" />
+    <item
+        android:id="@+id/navigation_search_lib"
+        android:icon="@drawable/nav_search_white"
+        android:title="@string/search_str" />
+</menu>

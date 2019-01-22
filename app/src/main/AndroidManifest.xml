@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.karot.mymovies">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainMenu"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LibraryActivity"
+            android:label="@string/title_activity_library" />
+        <activity
+            android:name=".AccountActivity"
+            android:label="@string/title_activity_account" />
+        <activity
+            android:name=".SearchActivity"
+            android:label="@string/title_activity_search" />
+        <activity
+            android:name=".MovieActivity"
+            android:label="@string/title_activity_movie" />
+        <activity
+            android:name=".FavoritesActivity"
+            android:label="@string/title_activity_favorites" />
+        <activity
+            android:name=".FriendsActivity"
+            android:label="@string/title_activity_friends" />
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">MyMovies</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_library">LibraryActivity</string>
+    <string name="navigation_search_str">search</string>
+    <string name="navigation_account_str">Account</string>
+    <string name="navigation_favorites_str">Favorites</string>
+    <string name="navigation_friends_str">Friends</string>
+    <string name="navigation_library_str">Library</string>
+    <string name="test0001">Lalaland</string>
+    <string name="title_activity_account">AccountActivity</string>
+    <string name="user_avatar">user avatar</string>
+    <string name="edit">edit</string>
+    <string name="logout">logout</string>
+    <string name="about_me_str">I want to remain a mystery.</string>
+    <string name="library_str">Library</string>
+    <string name="friends_str">Friends</string>
+    <string name="favorites_str">Favorites</string>
+    <string name="account_str">Account</string>
+    <string name="search_str">Search</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="my_library">My Library</string>
+    <string name="friends_libraries">Friends\' Libraries</string>
+    <string name="imdb">IMDB</string>
+    <string name="search_the_poster">Search the poster:</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="title_activity_movie">MovieActivity</string>
+    <string name="added_to_library">Added to library:</string>
+    <string name="title_activity_favorites">FavoritesActivity</string>
+    <string name="title_activity_friends">FriendsActivity</string>
+    <string name="friends_requests">Friends requests:</string>
+    <string name="title_activity_register">RegisterActivity</string>
+</resources>
