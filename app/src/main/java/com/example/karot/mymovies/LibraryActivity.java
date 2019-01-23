@@ -39,7 +39,6 @@ import java.util.concurrent.TimeUnit;
 
 public class LibraryActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
     private FirebaseUser user;
     private String userUID;
     private String friendUID;
@@ -62,22 +61,18 @@ public class LibraryActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_friends_lib:
-                    mTextMessage.setText(getString(R.string.navigation_friends_str));
                     updateUI(FriendsActivity.class);
                     return true;
                 case R.id.navigation_favorites_lib:
-                    mTextMessage.setText(getString(R.string.navigation_favorites_str));
                     updateUI(FavoritesActivity.class);
                     return true;
                 case R.id.navigation_account_lib:
                     if (taskIsRunning == false) {
-                        mTextMessage.setText(getString(R.string.navigation_account_str));
                         updateUI(AccountActivity.class);
                     }
                     return true;
                 case R.id.navigation_search_lib:
                     if (taskIsRunning == false) {
-                        mTextMessage.setText(getString(R.string.navigation_search_str));
                         updateUI(SearchActivity.class);
                     }
                     return true;
@@ -119,25 +114,25 @@ public class LibraryActivity extends AppCompatActivity {
     }
 
     private void getAllFilmsData(ArrayList<String> moviesIDs) {
-        Toast.makeText(LibraryActivity.this, "s: " + (moviesIDs.size()),
-                Toast.LENGTH_SHORT).show();
+       // Toast.makeText(LibraryActivity.this, "s: " + (moviesIDs.size()),
+            //    Toast.LENGTH_SHORT).show();
         for(String id: moviesIDs) {
             db.collection("movies_db").document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    Movie m = new Movie((String) documentSnapshot.get("poster_link"), (String)documentSnapshot.get("title"), (String)documentSnapshot.get("release"), (String)documentSnapshot.get("rating"),
+                    Movie m = new Movie((String) documentSnapshot.get("poster_link"), (String)documentSnapshot.get("title"), (String)documentSnapshot.get("release"), (String)documentSnapshot.get("imdb_rating"),
                             (String)documentSnapshot.get("genre"), (String)documentSnapshot.get("duration"), (String)documentSnapshot.get("description"), documentSnapshot.getId());
                     movies.add(m);
                    // imageAdapter.addMovie(m);
                     gridview.setAdapter(imageAdapter);
-                    Toast.makeText(LibraryActivity.this, "success ",
-                            Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(LibraryActivity.this, "success ",
+                   //         Toast.LENGTH_SHORT).show();
                 }
             });
         }
 
-        Toast.makeText(LibraryActivity.this, "z: " + (movies.size()),
-                Toast.LENGTH_SHORT).show(); // 0 !
+      //  Toast.makeText(LibraryActivity.this, "z: " + (movies.size()),
+         //       Toast.LENGTH_SHORT).show(); // 0 !
         gridview.setAdapter(imageAdapter);
     }
 
@@ -150,8 +145,6 @@ public class LibraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
         gridview = (GridView) findViewById(R.id.gridView);
-        mTextMessage = findViewById(R.id.message);
-        mTextMessage.setText(getString(R.string.test0001));
 
         Intent intent = getIntent();
         user = (FirebaseUser) intent.getExtras().getSerializable("CURRENT_USER");
@@ -256,8 +249,8 @@ public class LibraryActivity extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View v,
                                         int position, long id) {
-                    Toast.makeText(LibraryActivity.this, "" + position,
-                            Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(LibraryActivity.this, "" + position,
+                   //         Toast.LENGTH_SHORT).show();
                     Movie m = movies.get(position);
                     Intent intent= new Intent(mContext, MovieActivity.class);
                     intent.putExtra("CURRENT_USER", user);
@@ -275,7 +268,7 @@ public class LibraryActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-            Toast.makeText(this, "hahaha", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "hahaha", Toast.LENGTH_SHORT).show();
 
 
 

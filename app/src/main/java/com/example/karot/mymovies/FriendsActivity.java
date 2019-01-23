@@ -35,7 +35,6 @@ import java.util.Map;
 
 public class FriendsActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
 
     private FirebaseUser user;
     private SearchView searchView;
@@ -60,19 +59,15 @@ public class FriendsActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_search_sea:
-                    mTextMessage.setText(getString(R.string.navigation_search_str));
                     updateUI(SearchActivity.class);
                     return true;
                 case R.id.navigation_favorites_sea:
-                    mTextMessage.setText(getString(R.string.navigation_favorites_str));
                     updateUI(FavoritesActivity.class);
                     return true;
                 case R.id.navigation_account_sea:
-                    mTextMessage.setText(getString(R.string.navigation_account_str));
                     updateUI(AccountActivity.class);
                     return true;
                 case R.id.navigation_library_sea:
-                    mTextMessage.setText(getString(R.string.navigation_library_str));
                     updateUI(LibraryActivity.class);
                     return true;
             }
@@ -121,8 +116,8 @@ public class FriendsActivity extends AppCompatActivity {
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 usersList.add(new User( (String) documentSnapshot.get("nick"), (String) documentSnapshot.get("about"), (String) documentSnapshot.get("avatar_path"), documentSnapshot.getId(), true ) );
                                 listView.setAdapter(uAdapter);
-                                Toast.makeText(mContext, "masz przyjaciol",
-                                Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(mContext, "masz przyjaciol",
+                                //Toast.LENGTH_SHORT).show();
                             }
                         });
 
@@ -150,8 +145,8 @@ public class FriendsActivity extends AppCompatActivity {
                                 if(nick.startsWith(query) || query.startsWith(nick)) {
                                     User u = new User(nick, (String)document.get("about"), (String)document.get("avatar_path"), document.getId(), false);
                                     usersList.add(u);
-                                    Toast.makeText(mContext, "sa userzy",
-                                     Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(mContext, "sa userzy",
+                                    // Toast.LENGTH_SHORT).show();
                                 }
                             }
                             listView.setAdapter(uAdapter);
@@ -174,7 +169,7 @@ public class FriendsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),"KLIK", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplicationContext(),"KLIK", Toast.LENGTH_SHORT).show();
                 addBtn.setVisibility(View.GONE);
                 listView.setSelection(position);
                 // powinnismy przekazac wszystkie Movie Info i wywolac inny widok?
@@ -239,11 +234,10 @@ public class FriendsActivity extends AppCompatActivity {
 
         //set listener na element listy - jeśli kliknie, przejdź do biblioteki friendsa -> wymaga to modyfikacji libraryActivity
 
-
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        navigation.setSelectedItemId(R.id.navigation_friends_sea); // doesnt work?
+        //navigation.setSelectedItemId(R.id.navigation_friends_lib); // doesnt work?
+        navigation.setSelectedItemId(R.id.navigation_friends_sea);
     }
 
     private void setQuery(String query) {

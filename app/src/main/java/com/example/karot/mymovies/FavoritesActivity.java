@@ -35,7 +35,6 @@ import java.util.concurrent.TimeUnit;
 
 public class FavoritesActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
     private FirebaseUser user;
     private String userUID;
     private String email;
@@ -57,18 +56,14 @@ public class FavoritesActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_friends_lib:
-                    mTextMessage.setText(getString(R.string.navigation_friends_str));
                     updateUI(FriendsActivity.class);
                     return true;
                 case R.id.navigation_favorites_lib:
-                    mTextMessage.setText(getString(R.string.navigation_favorites_str));
                     return true;
                 case R.id.navigation_account_lib:
-                        mTextMessage.setText(getString(R.string.navigation_account_str));
                         updateUI(AccountActivity.class);
                     return true;
                 case R.id.navigation_search_lib:
-                        mTextMessage.setText(getString(R.string.navigation_search_str));
                         updateUI(SearchActivity.class);
                     return true;
                 case R.id.navigation_library_lib:
@@ -117,8 +112,6 @@ public class FavoritesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
         gridview = (GridView) findViewById(R.id.gridView);
-        mTextMessage = findViewById(R.id.message);
-        mTextMessage.setText(getString(R.string.test0001));
 
         Intent intent = getIntent();
         user = (FirebaseUser) intent.getExtras().getSerializable("CURRENT_USER");

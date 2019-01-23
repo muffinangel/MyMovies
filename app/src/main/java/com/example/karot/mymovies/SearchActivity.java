@@ -43,7 +43,6 @@ import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
     private FirebaseUser user;
     private SearchView searchView;
     private CheckBox checkBoxMyLib;
@@ -72,22 +71,17 @@ public class SearchActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_friends_sea:
-                    mTextMessage.setText(getString(R.string.navigation_friends_str));
                     updateUI(FriendsActivity.class);
                     return true;
                 case R.id.navigation_favorites_sea:
-                    mTextMessage.setText(getString(R.string.navigation_favorites_str));
                     updateUI(FavoritesActivity.class);
                     return true;
                 case R.id.navigation_account_sea:
-                    mTextMessage.setText(getString(R.string.navigation_account_str));
                     updateUI(AccountActivity.class);
                     return true;
                 case R.id.navigation_search_sea:
-                    mTextMessage.setText(getString(R.string.navigation_search_str));
                     return true;
                 case R.id.navigation_library_sea:
-                    mTextMessage.setText(getString(R.string.navigation_library_str));
                     updateUI(LibraryActivity.class);
                     return true;
             }
@@ -136,7 +130,6 @@ public class SearchActivity extends AppCompatActivity {
         user = (FirebaseUser) intent.getExtras().getSerializable("CURRENT_USER");
         userUID = intent.getStringExtra("USER_ID");
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.navigation_search_sea);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -523,8 +516,8 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void displayInfo(String title, String year, String poster, String rating, String genre, String duration, String description, String id) { //trzeba dodać pzoostałe informacje, aby po kliknięciu móc wrzucić do własnej biblioteki
-        Toast.makeText(this, title,
-                Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, title,
+       //         Toast.LENGTH_SHORT).show();
         listView = (ListView) findViewById(R.id.friendsView);
         moviesList.add(new Movie(poster, title , year, rating, genre, duration, description, id));
 

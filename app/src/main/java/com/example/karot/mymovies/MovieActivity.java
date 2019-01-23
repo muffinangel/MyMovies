@@ -143,8 +143,8 @@ public class MovieActivity extends AppCompatActivity implements View.OnClickList
         movies.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Toast.makeText(MovieActivity.this, "",
-                        Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(MovieActivity.this, "",
+               //         Toast.LENGTH_SHORT).show();
                 Map<String, Object> data = documentSnapshot.getData();
                 if (data == null) {
                     //addUserToUsers();
@@ -246,7 +246,7 @@ public class MovieActivity extends AppCompatActivity implements View.OnClickList
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(MovieActivity.this, "dodany do movies_db",
+                                Toast.makeText(MovieActivity.this, "added to your library",
                                         Toast.LENGTH_SHORT).show();
                             }
                         })
@@ -266,8 +266,8 @@ public class MovieActivity extends AppCompatActivity implements View.OnClickList
                                 trashBtn.setVisibility(View.VISIBLE);
                                 addToFavBtn.setVisibility(View.VISIBLE);
                                 favImage.setVisibility(View.GONE);
-                                Toast.makeText(MovieActivity.this, "do library uzytkownika",
-                                        Toast.LENGTH_SHORT).show();
+                              //  Toast.makeText(MovieActivity.this, "do library uzytkownika",
+                                  //      Toast.LENGTH_SHORT).show();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

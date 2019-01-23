@@ -38,7 +38,6 @@ import java.util.Map;
 
 public class AccountActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
     private FirebaseUser user;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ImageView imageView;
@@ -62,19 +61,15 @@ public class AccountActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_friends_acc:
-                    mTextMessage.setText(getString(R.string.navigation_friends_str));
                     updateUI(FriendsActivity.class);
                     return true;
                 case R.id.navigation_favorites_acc:
-                    mTextMessage.setText(getString(R.string.navigation_favorites_str));
                     updateUI(FavoritesActivity.class);
                     return true;
                 case R.id.navigation_library_acc:
-                    mTextMessage.setText(getString(R.string.navigation_library_str));
                     updateUI(LibraryActivity.class);
                     return true;
                 case R.id.navigation_search_acc:
-                    mTextMessage.setText(getString(R.string.navigation_search_str));
                     updateUI(SearchActivity.class);
                     return true;
             }
@@ -135,7 +130,8 @@ public class AccountActivity extends AppCompatActivity {
                             DocumentSnapshot document = task.getResult();
                             if (document.exists()) {
                                 Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                                aboutme.setText((String) document.get("about"));
+                                aboutme.setText("Your nick: " +  (String) document.get("nick") + "\nDescription: " + (String) document.get("about"));
+
 
 
                             } else {
@@ -327,9 +323,9 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        //navigation.setSelectedItemId(R.id.navigation_account_acc);
         navigation.setSelectedItemId(R.id.navigation_account_acc);
     }
 
